@@ -1,4 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -23,24 +22,27 @@ return {
 
   -- customize alpha options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
+    "folke/snacks.nvim",
+    opts = {
       -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      return opts
-    end,
+      dashboard = {
+        preset ={
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████",
+            " ██   ██ ██         ██    ██   ██ ██    ██",
+            " ███████ ███████    ██    ██████  ██    ██",
+            " ██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████",
+            " ",
+            "    ███    ██ ██    ██ ██ ███    ███",
+            "    ████   ██ ██    ██ ██ ████  ████",
+            "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "    ██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
@@ -86,4 +88,25 @@ return {
       )
     end,
   },
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      image = {
+        enabled = true
+        -- your image configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      doc = {
+        enabled = true,
+      }
+    }
+  },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   -- lazy = false,
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   opts = {},
+  -- },
 }
